@@ -1,31 +1,35 @@
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var futureSight = letters[Math.floor(Math.random() * letters.length)];
-var wins = 0;
-var	losses = 0;
-var	guesses = 10;
+var wins = '0';
+var	losses = '0';
+var	guesses = '10';
 var prevGuess = [];
 var gameDiv = document.getElementById('#gamer');
-var winning = document.getElementById('#wins');
-var losing = document.getElementById('#losses');
-var guessing = document.getElementById('#guesses');
-var alreadyGuessed = document.getElementById('#prevGuesses');
+var winning = document.getElementById('wins');
+var losing = document.getElementById('losses');
+var guessing = document.getElementById('guesses');
+var alreadyGuessed = document.getElementById('prevGuesses');
 
 function loseGame() {
 		guesses--;
-
+		guesses.push(guesses)
 	//if (guesses === 0) {
 		if (!guesses) {
 			guesses = 10;
 			losses++;
-			return;
+
+
 		}
 	};
 function winGame() {
 		wins++;
-		return;
+
 	};
  
-
+winning.innerHTML = wins;
+losing.innerHTML = losses;
+guessing.innerHTML = guesses;
+alreadyGuessed.innerHTML = prevGuess;
 
 console.log(futureSight);
 
@@ -40,5 +44,6 @@ document.onkeyup = function(event) {
 	}
 	futureSight = letters[Math.floor(Math.random() * letters.length)];
 	prevGuess.push(event.key);
-	console.log(futureSight)
+	console.log(futureSight);
+	wins.push(wins);
 };
