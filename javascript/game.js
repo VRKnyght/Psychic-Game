@@ -9,6 +9,7 @@ var winning = document.getElementById('wins');
 var losing = document.getElementById('losses');
 var guessing = document.getElementById('guesses');
 var alreadyGuessed = document.getElementById('prevGuesses');
+var logo = document.getElementById('logo');
 
 
 
@@ -44,10 +45,11 @@ document.onkeyup = function(event) {
 	prevGuess.push(event.key);
 	alreadyGuessed.innerHTML = prevGuess;
 	console.log(futureSight)
-};
-
 
 if (wins === 10 && losses < 10) {
-	gameDiv.innerHTML = '<p>Congratulations!</p> <img src=./images/download.jpg> <p>You should look into being a drifter!</p>' 
+	gameDiv.innerHTML = "<p>Congratulations! </p> <img src=./images/download.jpg> <p>You may want to look into being a Drifter</p>";
+	logo.innerHTML = '<img style="height: 200px; width: 100%" src=./images/The_Unspoken_Logo_black.png>'
 
 }
+};
+
