@@ -1,18 +1,20 @@
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var futureSight = letters[Math.floor(Math.random() * letters.length)];
-var wins = '0';
-var	losses = '0';
-var	guesses = '10';
+var wins = 0;
+var	losses = 0;
+var	guesses = 10;
 var prevGuess = [];
-var gameDiv = document.getElementById('#gamer');
+var gameDiv = document.getElementById('gamer');
 var winning = document.getElementById('wins');
 var losing = document.getElementById('losses');
 var guessing = document.getElementById('guesses');
 var alreadyGuessed = document.getElementById('prevGuesses');
 
+
+
 function loseGame() {
 		guesses--;
-		guesses.push(guesses)
+
 	//if (guesses === 0) {
 		if (!guesses) {
 			guesses = 10;
@@ -20,30 +22,32 @@ function loseGame() {
 
 
 		}
+		guessing.innerHTML = guesses;
+		losing.innerHTML = losses;
 	};
 function winGame() {
 		wins++;
-
+winning.innerHTML = wins;
 	};
  
-winning.innerHTML = wins;
-losing.innerHTML = losses;
-guessing.innerHTML = guesses;
-alreadyGuessed.innerHTML = prevGuess;
 
-console.log(futureSight);
+
 
 
 document.onkeyup = function(event) {
 	if (event.key === futureSight) {
-		alert('You are Psychic!');
 		winGame();				
 	} else {
-		alert('Not this time!');
 		loseGame();
 	}
 	futureSight = letters[Math.floor(Math.random() * letters.length)];
 	prevGuess.push(event.key);
-	console.log(futureSight);
-	wins.push(wins);
+	alreadyGuessed.innerHTML = prevGuess;
+	console.log(futureSight)
 };
+
+
+if (wins === 10 && losses < 10) {
+	gameDiv.innerHTML = '<p>Congratulations!</p> <img src=./images/download.jpg> <p>You should look into being a drifter!</p>' 
+
+}

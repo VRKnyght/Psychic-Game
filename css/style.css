@@ -1,0 +1,14 @@
+*{
+	margin-top: 20px;
+	color: black;
+	background-color: #f0c80087;
+}
+
+
+/*giving the body it's border*/
+body{
+	border-width: 5px;
+	border-color: #b79e7c3d;
+	border-style: outset;
+	border-radius: 3px;
+}
